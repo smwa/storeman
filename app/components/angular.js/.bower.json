@@ -1,0 +1,23 @@
+{
+  "name": "bower-angularjs",
+  "version": "1.3.15",
+  "homepage": "https://github.com/chrisyip/bower-angularjs",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.3.15",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.15",
+    "commit": "b168d86767c9d269d355356d26b1d2ad96a0e14b"
+  },
+  "_source": "git://github.com/chrisyip/bower-angularjs.git",
+  "_target": "~1.3.15",
+  "_originalSource": "angular.js",
+  "_direct": true
+}
