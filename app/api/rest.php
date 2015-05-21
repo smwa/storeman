@@ -5,6 +5,8 @@ $autoload_rest_dir = "routes";
 //such as get() for GET, post() for POST
 //If they have the variable $requiresAuth = true, or $getRequiresAuth(for GET requests)
 //Then it requires $user to be set for that call
+//available values to verb functions: $this->user, $this->input, $this->verb, $this->id
+//$this->id is the value after the noun, like 23 in ?users/23
 class rest
 {
     const HTTP_OK           = 200;
@@ -113,8 +115,11 @@ class rest
                 $INPUT = $_GET;
                 array_shift($INPUT);
                 break;
+            case "post":
+                $INPUT = $_POST;
+                break;
             default:
-                $INPUT = (array)json_decode(file_get_contents('php://input'));
+                parse_str(file_get_contents('php://input'), $INPUT);// (array)json_decode(file_get_contents('php://input'));
         }
 
         if (!empty($urlvars)) {

@@ -3,6 +3,10 @@
 abstract class ActiveRecord {
     const belongsTo = "belongsTo";
     const has = "has";
+  
+    function __construct() {
+
+    }
 
     public static function find($query = null, $start = 0, $limit = 1000) {
         $reference = new static();

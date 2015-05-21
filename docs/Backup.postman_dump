@@ -1,0 +1,218 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "8cd626f0-81df-d288-ca2a-93f755c08135",
+			"name": "user/session",
+			"description": "",
+			"order": [
+				"6f98bd3b-900d-a7a5-4e87-d6211dc8b6d9",
+				"c5f267f6-2629-b838-828f-6620c5abcd92",
+				"0ae3fb7f-cd90-f910-9d6d-b75bd669098f",
+				"877d91f3-4db0-a9c7-72e1-1163aa253eae",
+				"ce1c3902-4390-778f-8c08-7c548a9ee618",
+				"4c2a530d-528a-4a25-109b-9900c2916a65"
+			],
+			"folders": [],
+			"timestamp": 1432239995472,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"public": false,
+			"write": true,
+			"requests": [
+				{
+					"id": "0ae3fb7f-cd90-f910-9d6d-b75bd669098f",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?users/1",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "GET",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [
+						{
+							"key": "email",
+							"value": "test@localhost",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "abc12345",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataMode": "params",
+					"name": "get user",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432241037555,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				},
+				{
+					"id": "4c2a530d-528a-4a25-109b-9900c2916a65",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?users",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "DELETE",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataMode": "urlencoded",
+					"name": "delete user",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432243443824,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				},
+				{
+					"id": "6f98bd3b-900d-a7a5-4e87-d6211dc8b6d9",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?sessions",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "POST",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [
+						{
+							"key": "email",
+							"value": "test@localhost",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "abc12345",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataMode": "params",
+					"name": "login",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432240996628,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				},
+				{
+					"id": "877d91f3-4db0-a9c7-72e1-1163aa253eae",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?sessions",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "DELETE",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [],
+					"dataMode": "params",
+					"name": "sign out",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432242983642,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				},
+				{
+					"id": "c5f267f6-2629-b838-828f-6620c5abcd92",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?users",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "POST",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [
+						{
+							"key": "email",
+							"value": "test@localhost",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "abc12345",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataMode": "params",
+					"name": "create user",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432241011725,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				},
+				{
+					"id": "ce1c3902-4390-778f-8c08-7c548a9ee618",
+					"headers": "",
+					"url": "localhost:81/storeman/trunk/app/api/?users",
+					"pathVariables": {},
+					"preRequestScript": "",
+					"method": "PUT",
+					"collectionId": "8cd626f0-81df-d288-ca2a-93f755c08135",
+					"data": [
+						{
+							"key": "oldpassword",
+							"value": "abc12345",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"dataMode": "urlencoded",
+					"name": "update password",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1432243385878,
+					"version": 2,
+					"responses": [],
+					"tests": "",
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"collectionOwner": 0
+				}
+			]
+		}
+	],
+	"environments": [],
+	"headerPresets": [],
+	"globals": []
+}

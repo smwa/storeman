@@ -2,9 +2,7 @@
 
 abstract class MysqlActiveRecord extends ActiveRecord {
     protected function getConnection() {
-        global $connectionCredentials;
-        $info = $connectionCredentials[$this->getDatabaseName()];
-        return new PDO('mysql:host='.$info["host"].';port='.$info["port"].';dbname='.$info["db"], $info["user"], $info["pass"], array( PDO::ATTR_PERSISTENT => false));
+        return new PDO('mysql:host='.$GLOBALS["mysqli_host"].';port='.$GLOBALS["mysqli_port"].';dbname='.$GLOBALS["mysqli_db"], $GLOBALS["mysqli_user"], $GLOBALS["mysqli_pass"], array( PDO::ATTR_PERSISTENT => false));
     }
 
     protected function getDatabaseName() {
