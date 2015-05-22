@@ -38,19 +38,31 @@ class locationsRoute extends rest
     $l->title = $this->input["title"];
     $l->description = $this->input["description"];
     $l->save();
+    return array(
+      "id" => $l->id,
+      "user" => $l->userid,
+      "title" => $l->title,
+      "description" => $l->description,
+    );
   }
   
   function put() {
-    if (!$this->input["title"]) {
-      return $this->error("Invalid title");
-    }
     $l = Location::findOne(array("id" => $this->id, "userid" => $this->user->id));
     if (!$l) {
       return $this->error("Invalid location");
     }
+    if (!$this->input["title"]) {
+      return $this->error("Invalid title");
+    }
     $l->title = $this->input["title"];
     $l->description = $this->input["description"];
     $l->save();
+    return array(
+      "id" => $l->id,
+      "user" => $l->userid,
+      "title" => $l->title,
+      "description" => $l->description,
+    );
   }
   
   function delete() {

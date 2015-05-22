@@ -1,0 +1,45 @@
+<div class="alert alert-danger" ng-hide="!error" role="alert">{{error}}</div>
+<div class="alert alert-success" ng-hide="!msg" role="alert">{{msg}}</div>
+<div class='col-md-6'>
+<h3>Log In</h3>
+<form ng-submit="login()" type="post">
+    <div class="row">
+  <div class="form-group col-md-4">
+    <label for="loginemail">Email Address</label>
+    <input autofocus type="email" id="loginemail" class="form-control" ng-model="loginemail" placeholder="Email">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="loginpassword">Password</label>
+    <input type="password" class="form-control" id="loginpassword" ng-model="loginpassword" placeholder="Password">
+  </div>
+  </div>
+  <div class="row">
+      <div class="col-md-3">
+          <label for="button"></label>
+          <button type="submit" class="btn btn-primary btn-block">Log In</button>
+      </div>
+  </div>
+</form>
+</div>
+
+<div class='col-md-6'>
+<h3>Register</h3>
+<form ng-submit="register()" type="post">
+    <div class="row">
+  <div class="form-group col-md-4">
+    <label for="registeremail">Email Address</label>
+    <input autofocus type="email" id="registeremail" class="form-control" ng-model="registeremail" placeholder="Email">
+  </div>
+  <div class="form-group col-md-4">
+    <label for="registerpassword">Password</label>
+    <input type="password" class="form-control" id="registerpassword" ng-model="registerpassword" placeholder="Password">
+  </div>
+  </div>
+  <div class="row">
+      <div class="col-md-3">
+          <label for="button"></label>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+      </div>
+  </div>
+</form>
+</div>

@@ -19,8 +19,8 @@ class itemsRoute extends rest
     }
     
     $ret = array();
-    $this->user->populate("Containers");
-    foreach ($this->user->Containers as $c) {
+    $this->user->populate("Items");
+    foreach ($this->user->Items as $c) {
       $ret[] = array(
         "id" => $c->id,
         "title" => $c->title,
@@ -36,13 +36,19 @@ class itemsRoute extends rest
     if (!$in["title"]) {
       return $this->error("Invalid title");
     }
-    $loc = Location::findOne(array("userid" => $this->user->id, "id" => $in["location"]));
-    if (!$loc) {
-      return $this->error("Invalid location");
+    $this->input["location"] = intval($this->input["location"]);
+    if ($this->input["location"] > 0) {
+      $loc = Location::findOne(array("userid" => $this->user->id, "id" => $in["location"]));
+      if (!$loc) {
+        return $this->error("Invalid location");
+      }
     }
-    $con = Container::findOne(array("userid" => $this->user->id, "id" => $in["container"]));
-    if (!$con) {
-      return $this->error("Invalid container");
+    $this->input["container"] = intval($this->input["container"]);
+    if ($this->input["container"] > 0) {
+      $con = Container::findOne(array("userid" => $this->user->id, "id" => $in["container"]));
+      if (!$con) {
+        return $this->error("Invalid container");
+      }
     }
     $i = new Item();
     $i->userid = $this->user->id;
@@ -50,6 +56,12 @@ class itemsRoute extends rest
     $i->locationid = $in["location"];
     $i->containerid = $in["container"];
     $i->save();
+    return array(
+      "id" => $i->id,
+      "title" => $i->title,
+      "location" => $i->locationid,
+      "container" => $i->containerid,
+    );
   }
   
   function put() {
@@ -61,18 +73,30 @@ class itemsRoute extends rest
     if (!$in["title"]) {
       return $this->error("Invalid title");
     }
-    $loc = Location::findOne(array("userid" => $this->user->id, "id" => $in["location"]));
-    if (!$loc) {
-      return $this->error("Invalid location");
+    $this->input["location"] = intval($this->input["location"]);
+    if ($this->input["location"] > 0) {
+      $loc = Location::findOne(array("userid" => $this->user->id, "id" => $in["location"]));
+      if (!$loc) {
+        return $this->error("Invalid location");
+      }
     }
-    $con = Container::findOne(array("userid" => $this->user->id, "id" => $in["container"]));
-    if (!$con) {
-      return $this->error("Invalid container");
+    $this->input["container"] = intval($this->input["container"]);
+    if ($this->input["container"] > 0) {
+      $con = Container::findOne(array("userid" => $this->user->id, "id" => $in["container"]));
+      if (!$con) {
+        return $this->error("Invalid container");
+      }
     }
     $i->title = $in["title"];
     $i->locationid = $in["location"];
     $i->containerid = $in["container"];
     $i->save();
+    return array(
+      "id" => $i->id,
+      "title" => $i->title,
+      "location" => $i->locationid,
+      "container" => $i->containerid,
+    );
   }
   
   function delete() {

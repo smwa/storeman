@@ -1,6 +1,6 @@
 <?php
 
-class containersoRoute extends rest
+class containersRoute extends rest
 {
   protected $requiresAuth = true;
   
@@ -33,15 +33,23 @@ class containersoRoute extends rest
     if (!$this->input["title"]) {
       return $this->error("Invalid title");
     }
-    $ls = Location::findOne(array("userid" => $this->user->id, "id" => $this->input["location"]));
-    if (!$ls) {
-      return $this->error("Invalid location");
+    $this->input["location"] = intval($this->input["location"]);
+    if ($this->input["location"] > 0) {
+      $ls = Location::findOne(array("userid" => $this->user->id, "id" => $this->input["location"]));
+      if (!$ls) {
+        return $this->error("Invalid location");
+      }
     }
     $c = new Container();
     $c->userid = $this->user->id;
     $c->locationid = $this->input["location"];
     $c->title = $this->input["title"];
     $c->save();
+    return array(
+      "id" => $c->id,
+      "title" => $c->title,
+      "location" => $c->locationid,
+    );
   }
   
   function put() {
@@ -52,13 +60,21 @@ class containersoRoute extends rest
     if (!$this->input["title"]) {
       return $this->error("Invalid title");
     }
-    $ls = Location::findOne(array("userid" => $this->user->id, "id" => $this->input["location"]));
-    if (!$ls) {
-      return $this->error("Invalid location");
+    $this->input["location"] = intval($this->input["location"]);
+    if ($this->input["location"] > 0) {
+      $ls = Location::findOne(array("userid" => $this->user->id, "id" => $this->input["location"]));
+      if (!$ls) {
+        return $this->error("Invalid location");
+      }
     }
     $c->title = $this->input["title"];
     $c->locationid = $this->input["location"];
     $c->save();
+    return array(
+      "id" => $c->id,
+      "title" => $c->title,
+      "location" => $c->locationid,
+    );
   }
   
   function delete() {

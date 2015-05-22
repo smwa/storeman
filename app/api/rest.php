@@ -115,11 +115,11 @@ class rest
                 $INPUT = $_GET;
                 array_shift($INPUT);
                 break;
-            case "post":
-                $INPUT = $_POST;
-                break;
+//            case "post":
+//                $INPUT = $_POST;
+//                break;
             default:
-                parse_str(file_get_contents('php://input'), $INPUT);// (array)json_decode(file_get_contents('php://input'));
+                $INPUT = (array)json_decode(file_get_contents('php://input'));// (array)json_decode(file_get_contents('php://input'));
         }
 
         if (!empty($urlvars)) {
