@@ -13,15 +13,15 @@ class sessionsRoute extends rest
     $Session = new Session();
     $Session->userid = $user->id;
     $Session->save();
-    setcookie("sessionid", $Session->sessionid);
+    setcookie("sessionid", $Session->sessionid, time() + 60*60*24*30, "/");
     return array("sessionid" => $Session->sessionid);
   }
   
   function delete() {
-    $session = Session::findOne(array("sessionid" => $_REQUEST["sessionid"]));
+    $session = Session::findOne(array("sessionid" => $_COOKIE["sessionid"]));
     if ($session) {
       $session->delete();
     }
-    setcookie("sessionid", "", time() - 3600);
+    setcookie("sessionid", "", time() - 3600, "/");
   }
 }

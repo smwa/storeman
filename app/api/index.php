@@ -12,7 +12,7 @@ function autoloadModels($class) {
 
 spl_autoload_register("autoloadModels");
 
-$userid = Session::getUserIDBySessionID($_REQUEST["sessionid"]);
+$userid = Session::getUserIDBySessionID($_COOKIE["sessionid"]);
 $user = null;
 if ($userid > 0) {
   $user = User::findOne($userid);
