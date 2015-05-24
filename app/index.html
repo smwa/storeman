@@ -5,9 +5,11 @@
     <title>Storeman</title>
     <meta name="description" content="storeman">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- build:css -->
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
   </head>
   <body ng-app="app">
 
@@ -26,6 +28,7 @@
     <div ng-view=""></div>
   </div>
 
+  <!-- build:js -->
   <script src="components/jquery/dist/jquery.min.js"></script>
   <script src="components/angular.js/angular.min.js"></script>
   <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -50,5 +53,8 @@
   <script src="scripts/controllers/loginregister.js"></script>
   <script src="scripts/controllers/main.js"></script>
   <script src="scripts/controllers/qr.js"></script>
+
+  <script src="templates.js"></script>
+  <!-- endbuild -->
 </body>
 </html>

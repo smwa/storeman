@@ -1,5 +1,6 @@
 angular
   .module('app', [
+    'templates',
     'ngRoute',
     'monospaced.qrcode'
   ])
