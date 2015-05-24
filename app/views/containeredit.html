@@ -1,0 +1,20 @@
+<div class="alert alert-danger" ng-hide="!error" role="alert">{{error}}</div>
+<div class="alert alert-success" ng-hide="!msg" role="alert">{{msg}}</div>
+
+<form ng-submit="save()" type="post">
+    <div class="row">
+  <div class="form-group col-md-4">
+    <label for="title">Title</label>
+    <input autofocus id="title" class="form-control" ng-model="title" placeholder="Title">
+  </div>
+  </div>
+  <location-list></location-list>
+  <div class="row">
+      <div class="col-md-3">
+          <a ng-href="#/container/{{id}}" class="btn btn-default btn-block">Cancel</a>
+      </div>
+      <div class="col-md-3">
+          <button type="submit" class="btn btn-primary btn-block">Save</button>
+      </div>
+  </div>
+</form>

@@ -14,13 +14,13 @@
   <nav class="navbar navbar-default" ng-controller="headerCtrl">
   <div class="container-fluid">
       <ul class="nav navbar-nav">
-        <li><a class="navbar-brand" href="#/">Momentum</a></li>
+        <li><a href="#/">Storeman</a></li>
         <li><a href="https://github.com/smwa/storeman" target="_blank"><img src="images/GitHub-Mark-32px.png" height="24px" title="Check us out on GitHub" alt="Check us out on GitHub"></a></li>
         <li><a href="#/login" ng-hide='isloggedin()'>Log In or Register</a></li>
         <li><a ng-click="logout()" href="#/" ng-show='isloggedin()' ng-cloak>Log Out</a></li>
       </ul>
-  </div>
-</nav>
+    </div>
+  </nav>
 
   <div id="content" class='container-fluid'>
     <div ng-view=""></div>

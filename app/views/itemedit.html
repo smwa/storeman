@@ -1,0 +1,31 @@
+<div class="alert alert-danger" ng-hide="!error" role="alert">{{error}}</div>
+<div class="alert alert-success" ng-hide="!msg" role="alert">{{msg}}</div>
+
+<h3 ng-show="originallocation > 0"><a ng-href="#/location/{{originallocation}}">Go to location</a></h3>
+<h3 ng-show="originalcontainer > 0"><a ng-href="#/container/{{originalcontainer}}">Go to container</a></h3>
+
+<div class="btn-group">
+  <a class="btn btn-default" ng-href="#/item/qr/{{id}}">QR Code</a></div>
+<hr>
+
+<form ng-submit="save()" type="post">
+    <div class="row">
+  <div class="form-group col-md-4">
+    <label for="title">Title</label>
+    <input autofocus id="title" class="form-control" ng-model="title" placeholder="Title">
+  </div>
+  </div>
+  <h4>You can't choose a location and a container</h4>
+  <h2>Locations</h2>
+  <location-list></location-list>
+  <h2>Containers</h2>
+  <container-list></container-list>
+  <div class="row">
+      <div class="col-md-3">
+          <a ng-href="#/container/{{id}}" class="btn btn-default btn-block">Cancel</a>
+      </div>
+      <div class="col-md-3">
+          <button type="submit" class="btn btn-primary btn-block">Save</button>
+      </div>
+  </div>
+</form>

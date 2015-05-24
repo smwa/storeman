@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<h3 ng-show="location.id"><a ng-href="#/location/{{location.id}}">Location: {{location.title}}</a></h3>
+
+<div class="btn-group">
+  <a class="btn btn-default" ng-href="#/container/edit/{{id}}">Edit</a>
+  <a class="btn btn-default" ng-href="#/container/qr/{{id}}">QR Code</a></div>
+<hr>
+
+<hr>
+
+<h1>Items</h1>
+<a ng-href='#/item/edit'>Create Item</a>
+<item-list></item-list>

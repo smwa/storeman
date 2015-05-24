@@ -15,15 +15,27 @@ angular.module('app')
   });
   
   $scope.deleteLocation = function(id) {
-    
+    Location.delete(id, function(data){
+      $location.path("#/");
+    }, function(data){
+      $scope.error = data.error;
+    });
   };
   
   $scope.deleteContainer = function(id) {
-    
+    Container.delete(id, function(data){
+      $location.path("#/");
+    }, function(data){
+      $scope.error = data.error;
+    });
   };
   
   $scope.deleteItem = function(id) {
-    
+    Item.delete(id, function(data){
+      $location.path("#/");
+    }, function(data){
+      $scope.error = data.error;
+    });
   };
   
   Location.getAll(function(data) {
@@ -35,7 +47,7 @@ angular.module('app')
   Container.getAll(function(data){
     for (var i in data) {
       if (data.hasOwnProperty(i)) {
-        if (!data[i].location) {
+        if (!data[i].location || parseInt(data[i].location,10) < 1) {
           $scope.containers.push(data[i]);
         }
       }
@@ -47,8 +59,8 @@ angular.module('app')
   Item.getAll(function(data){
     for (var i in data) {
       if (data.hasOwnProperty(i)) {
-        if (!data[i].location && !data[i].container) {
-          $scope.containers.push(data[i]);
+        if ((!data[i].location || parseInt(data[i].location,10) < 1) && (!data[i].container || parseInt(data[i].container,10) < 1)) {
+          $scope.items.push(data[i]);
         }
       }
     }
