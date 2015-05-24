@@ -1,6 +1,7 @@
 angular
   .module('app', [
-    'ngRoute'
+    'ngRoute',
+    'monospaced.qrcode'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -17,7 +18,7 @@ angular
       })
     
       .when('/location/qr/:id', {
-          templateUrl: 'views/locationqr.html',
+          templateUrl: 'views/qr.html',
           controller: 'qrCtrl'
       })
       .when('/location/edit/:id', {
@@ -35,7 +36,7 @@ angular
     
     
       .when('/container/qr/:id', {
-          templateUrl: 'views/containerqr.html',
+          templateUrl: 'views/qr.html',
           controller: 'qrCtrl'
       })
       .when('/container/edit/:id', {
@@ -56,7 +57,7 @@ angular
           controller: 'itemeditCtrl'
       })
       .when('/item/qr/:id', {
-          templateUrl: 'views/itemqr.html',
+          templateUrl: 'views/qr.html',
           controller: 'qrCtrl'
       })
       .when('/item/:id', {
