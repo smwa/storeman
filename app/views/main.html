@@ -1,16 +1,17 @@
-<div class="alert alert-danger" ng-hide="!error" role="alert">{{error}}</div>
-<div class="alert alert-success" ng-hide="!msg" role="alert">{{msg}}</div>
+<div class="alert alert-danger" ng-show="error" role="alert">{{error}}</div>
+<div class="alert alert-success" ng-show="msg" role="alert">{{msg}}</div>
+<div class="alert alert-info" ng-show="helper" role="alert">Not sure where to start? Click on the "Create Item" below, put the name of the closest item to you in the "Title" box, click "Save", and click the storeman logo in the top-left to come back here</div>
 <div class="btn-group">
   <a class="btn btn-default" ng-href="api/?data">Export</a></div>
 <hr>
-<h1>Locations</h1>
+<h2>Locations</h2>
 <a ng-href='#/location/edit'>Create Location</a>
 <location-list></location-list>
 <hr>
-<h1>Unlocated Containers</h1>
+<h2>Containers <small>These are any containers that aren't in a location</small></h2>
 <a ng-href='#/container/edit'>Create Container</a>
 <container-list></container-list>
 <hr>
-<h1>Uncontained Items</h1>
+<h2>Items <small>These are items that aren't in a container or location</small></h2>
 <a ng-href='#/item/edit'>Create Item</a>
 <item-list></item-list>

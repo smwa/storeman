@@ -1,16 +1,22 @@
 'use strict';
 
 angular.module('app')
-  .controller('mainCtrl', function ($scope, User, $location, Location, Container, Item) {
+  .controller('mainCtrl', function ($scope, User, $location, Location, Container, Item, $timeout) {
   $scope.locations = [];
   $scope.containers = [];
   $scope.items = [];
   $scope.msg = null;
   $scope.error = null;
+  $scope.helper = false;
+  $scope.notLoggedInTimeout = null;
 
   User.isLoggedIn(function(){
 
   }, function(){
+    if ($scope.notLoggedInTimeout !== null) {
+      $timeout.cancel($scope.notLoggedInTimeout);
+      $scope.notLoggedInTimeout = null;
+    }
     $location.path("/landing");
   });
   
@@ -67,5 +73,12 @@ angular.module('app')
   },function(data){
     $scope.error = data.error;
   });
+  
+  //give the user a few seconds before checking the helper
+  $scope.notLoggedInTimeout = $timeout(function(){
+    if ($scope.containers.length < 1 && $scope.items.length < 1 && $scope.locations.length < 1) {
+      $scope.helper = true;
+    }
+  },2500);
   
 });

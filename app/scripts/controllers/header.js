@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('headerCtrl', function ($scope, $interval, User, $location) {
+  .controller('headerCtrl', function ($scope, $timeout, User, $location) {
   
   $scope.isloggedin = function() {
     return User.isLoggedInVar;
@@ -9,7 +9,9 @@ angular.module('app')
   
     $scope.logout = function() {
       User.logOut();
-	  $location.path("#/landing");
+      $timeout(function() {
+        $location.path("#/landing");
+      },250);
     };
   User.isLoggedIn();
 });
