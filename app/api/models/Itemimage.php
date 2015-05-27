@@ -1,8 +1,12 @@
 <?php
-class Itemimage extends Model {
-    public $table    = "itemimages";
-    public $pk       = "id";
-    
+class Itemimage extends MysqlActiveRecord {
+    protected function getPrimaryKey() {
+        return "id";
+    }
+    protected function getTableName() {
+        return "itemimages";
+    }
+  
     public function uploadFromLocation($location) {
         $this->filedata = file_get_contents($location);
         //16777215 is the number of bytes for a mediumblob

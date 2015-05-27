@@ -10,7 +10,9 @@ class itemimagesRoute extends rest
         return $this->error("Invalid item");
       }
       $ci = Itemimage::findOne(array("itemid" => intval($this->id)));
-      
+      if (!$ci) {
+        return $this->error("Image not found", self::HTTP_NOT_FOUND);
+      }
       switch(strtolower(substr($ci->filename, strrpos($ci->filename, ".")+1))) {
           case "gif":
               $imagetype = IMAGETYPE_GIF;
@@ -34,9 +36,15 @@ class itemimagesRoute extends rest
     if (!$c) {
       return $this->error("Invalid item");
     }
+    
+    $ci = Itemimage::findOne(array("itemid" => intval($this->id)));
+    if ($ci) {
+      $ci->delete();
+    }
+    
     $f = new Itemimage();
     $f->filename = $_FILES['file']['name'];
-    if (!$f->blah($_FILES['file']['tmp_name'])) {
+    if (!$f->uploadFromLocation($_FILES['file']['tmp_name'])) {
         return $this->error("Invalid file");
     }
     $f->itemid = intval($this->id);
@@ -49,6 +57,9 @@ class itemimagesRoute extends rest
       return $this->error("Invalid item");
     }
     $ci = Itemimage::findOne(array("itemid" => intval($this->id)));
+    if (!$ci) {
+      return $this->error("Image not found", self::HTTP_NOT_FOUND);
+    }
     $ci->delete();
   }
 }

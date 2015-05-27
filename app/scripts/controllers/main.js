@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('mainCtrl', function ($scope, User, $location, Location, Container, Item, $timeout) {
+  .controller('mainCtrl', function ($scope, User, $route, $location, Location, Container, Item, $timeout) {
   $scope.locations = [];
   $scope.containers = [];
   $scope.items = [];
@@ -22,7 +22,7 @@ angular.module('app')
   
   $scope.deleteLocation = function(id) {
     Location.delete(id, function(data){
-      $location.path("#/");
+      $route.reload();
     }, function(data){
       $scope.error = data.error;
     });
@@ -30,7 +30,7 @@ angular.module('app')
   
   $scope.deleteContainer = function(id) {
     Container.delete(id, function(data){
-      $location.path("#/");
+      $route.reload();
     }, function(data){
       $scope.error = data.error;
     });
@@ -38,7 +38,7 @@ angular.module('app')
   
   $scope.deleteItem = function(id) {
     Item.delete(id, function(data){
-      $location.path("#/");
+      $route.reload();
     }, function(data){
       $scope.error = data.error;
     });

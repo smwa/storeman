@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('containerCtrl', function ($scope, $location, $routeParams, Container, Item, Location) {
+  .controller('containerCtrl', function ($scope, $route, $routeParams, Container, Item, Location, Image) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -39,8 +39,16 @@ angular.module('app')
   
   $scope.deleteItem = function(id) {
     Item.delete(id, function(data){
-      $location.path("#/container/"+$scope.id);
+      $route.reload();
     }, function(){});
+  };
+  
+  $scope.imageupload = function(files) {
+    if (files.length) {
+      Image.uploadcontainerimage($scope.id, files[0], function(data){
+        $route.reload();
+      });
+    }
   };
 
 });

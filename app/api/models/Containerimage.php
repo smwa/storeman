@@ -1,7 +1,11 @@
 <?php
-class Containerimage extends Model {
-    public $table    = "containerimages";
-    public $pk       = "id";
+class Containerimage extends MysqlActiveRecord {
+  protected function getPrimaryKey() {
+        return "id";
+    }
+    protected function getTableName() {
+        return "containerimages";
+    }
     
     public function uploadFromLocation($location) {
         $this->filedata = file_get_contents($location);

@@ -4,7 +4,14 @@
 <h3 ng-show="originallocation > 0"><a ng-href="#/location/{{originallocation}}">Go to location</a></h3>
 <h3 ng-show="originalcontainer > 0"><a ng-href="#/container/{{originalcontainer}}">Go to container</a></h3>
 
-<div class="btn-group">
+<div>
+<a ng-href="api/?itemimages/{{id}}">
+  <img ng-src="api/?itemimages/{{id}}" onerror="this.style.display='none';" class="apiimg"></img>
+</a>
+</div>
+<br>
+<div ng-show="{{id}}" class="btn-group">
+  <button class="btn btn-default" ngf-select ngf-change="imageupload($files)">Set Image</button>
   <a class="btn btn-default" ng-href="#/item/qr/{{id}}">QR Code</a></div>
 <hr>
 

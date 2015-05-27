@@ -1,0 +1,8 @@
+.apiimg {
+  width: 60%; 
+  max-width: 600px; 
+  background-size: cover; 
+  background-position: center center; 
+  display: inline-block;
+  height: 400px;
+}

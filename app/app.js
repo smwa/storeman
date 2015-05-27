@@ -2,7 +2,8 @@ angular
   .module('app', [
     'templates',
     'ngRoute',
-    'monospaced.qrcode'
+    'monospaced.qrcode',
+    'ngFileUpload'
   ])
   .config(function ($routeProvider) {
     $routeProvider

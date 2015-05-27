@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('containereditCtrl', function ($scope, $location, $routeParams, Location, Container) {
+  .controller('containereditCtrl', function ($scope, $location, $route, $routeParams, Location, Container) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -45,7 +45,7 @@ angular.module('app')
       Container.update($scope.id, $scope.title, $scope.location, function(data){
         //success
         $scope.msg = "Container updated";
-        $location.path("/container/"+$scope.id);
+        $route.reload();
       }, function(data) {
         //error
         $scope.error = data.error;

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('locationCtrl', function ($scope, $location, $routeParams, Location, Container, Item) {
+  .controller('locationCtrl', function ($scope, $route, $routeParams, Location, Container, Item) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -49,13 +49,13 @@ angular.module('app')
   
   $scope.deleteContainer = function(id) {
     Container.delete(id, function(){
-      $location.path("#/location/"+$scope.id);
+      $route.reload();
     }, function(){});
   };
   
   $scope.deleteItem = function(id) {
     Item.delete(id, function(data){
-      $location.path("#/location/"+$scope.id);
+      $route.reload();
     }, function(){});
   };
 

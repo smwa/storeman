@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('itemeditCtrl', function ($scope, $location, $routeParams, Location, Container, Item) {
+  .controller('itemeditCtrl', function ($scope, $route, $location, $routeParams, Location, Container, Item, Image) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -78,7 +78,7 @@ angular.module('app')
       Item.update($scope.id, $scope.title, $scope.location, $scope.container, function(data){
         //success
         $scope.msg = "Item updated";
-        $location.path("/item/"+$scope.id);
+        $route.reload();
       }, function(data) {
         //error
         $scope.error = data.error;
@@ -95,5 +95,13 @@ angular.module('app')
       });
     }
   }
+  
+  $scope.imageupload = function(files) {
+    if (files.length) {
+      Image.uploaditemimage($scope.id, files[0], function(data){
+        $route.reload();
+      });
+    }
+  };
 
 });

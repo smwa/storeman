@@ -1,11 +1,13 @@
 <h1>{{title}}</h1>
 <h3 ng-show="location.id"><a ng-href="#/location/{{location.id}}">Location: {{location.title}}</a></h3>
-
+<a ng-href="api/?containerimages/{{id}}">
+  <img ng-src="api/?containerimages/{{id}}" onerror="this.style.display='none';" class="apiimg"></img>
+</a>
+<hr>
 <div class="btn-group">
+  <button class="btn btn-default" ngf-select ngf-change="imageupload($files)">Set Image</button>
   <a class="btn btn-default" ng-href="#/container/edit/{{id}}">Edit</a>
   <a class="btn btn-default" ng-href="#/container/qr/{{id}}">QR Code</a></div>
-<hr>
-
 <hr>
 
 <h1>Items</h1>

@@ -1,5 +1,3 @@
-UPDATE config SET database_version = 2;
-
 CREATE TABLE itemimages(
   id int PRIMARY KEY AUTO_INCREMENT,
   itemid int,

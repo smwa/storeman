@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('locationeditCtrl', function ($scope, $location, $routeParams, Location) {
+  .controller('locationeditCtrl', function ($scope, $route, $location, $routeParams, Location) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -24,7 +24,7 @@ angular.module('app')
       Location.update($scope.id, $scope.title, $scope.description, function(data){
         //success
         $scope.msg = "Location updated";
-        $location.path("/location/"+$scope.id);
+        $route.reload();
       }, function(data) {
         //error
         $scope.error = data.error;
