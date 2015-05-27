@@ -105,5 +105,9 @@ class itemsRoute extends rest
       return $this->error("Invalid item");
     }
     $c->delete();
+    
+    foreach(Itemimage::find(array("itemid" => $this->id)) as $ii) {
+      $ii->delete();
+    }
   }
 }

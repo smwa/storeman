@@ -88,6 +88,9 @@ class containersRoute extends rest
       $i->locationid = 0;
       $i->save();
     }
+    foreach(Containerimage::find(array("containerid" => $this->id)) as $ii) {
+      $ii->delete();
+    }
     $c->delete();
   }
 }
