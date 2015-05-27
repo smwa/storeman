@@ -58,6 +58,8 @@ class usersRoute extends rest
       Item::find(array("userid" => $this->user->id)),
       Session::find(array("userid" => $this->user->id)),
     );
+    $userdata[] = Containerimage::find(array("containerid" => $userdata[1]));
+    $userdata[] = Itemimage::find(array("itemid" => $userdata[2]));
     $this->user->delete();
     foreach ($userdata as $array) {
       if (!$array) continue;
