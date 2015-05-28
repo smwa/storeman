@@ -42,7 +42,7 @@ class itemimagesRoute extends rest
       $ci->delete();
     }
     if ($_FILES["file"]["error"] > 0) {
-      return error("Item image upload error ".$_FILES["file"]["error"]);
+      return $this->error("Item image upload error ".$_FILES["file"]["error"]);
     }
     $f = new Itemimage();
     $f->filename = $_FILES['file']['name'];

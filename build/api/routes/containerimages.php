@@ -41,7 +41,7 @@ class containerimagesRoute extends rest
       $ci->delete();
     }
     if ($_FILES["file"]["error"] > 0) {
-      return error("Container image upload error ".$_FILES["file"]["error"]);
+      return $this->error("Container image upload error ".$_FILES["file"]["error"]);
     }
     $f = new Containerimage();
     $f->filename = $_FILES['file']['name'];
