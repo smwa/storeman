@@ -11,7 +11,7 @@ class Containerimage extends MysqlActiveRecord {
     public function uploadFromLocation($location) {
         try {
             $ir = new \Eventviva\ImageResize($location);
-            $ir->resizeToWidth($GLOBALS["resizeimagewidth"]);
+            $ir->resizeToWidth($GLOBALS["imageresizewidth"]);
             $this->filedata = $ir->getImageAsString();
         } catch (Exception $e) {
             error_log('ImageResize caught exception: '.$e->getMessage());
