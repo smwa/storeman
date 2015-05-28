@@ -1,4 +1,5 @@
 <?php
+include_once("php-image-resize.php");
 class Itemimage extends MysqlActiveRecord {
     protected function getPrimaryKey() {
         return "id";
@@ -8,7 +9,13 @@ class Itemimage extends MysqlActiveRecord {
     }
   
     public function uploadFromLocation($location) {
-        $this->filedata = file_get_contents($location);
+        try {
+            $ir = new \Eventviva\ImageResize($location);
+            $ir->resizeToWidth(600);
+            $this->filedata = $ir->getImageAsString();
+        } catch (Exception $e) {
+            error_log('ImageResize caught exception: '.$e->getMessage());
+        }
         //16777215 is the number of bytes for a mediumblob
         if ($this->filedata === false || strlen($this->filedata) > 16777215) {
           $this->filedata = null;
