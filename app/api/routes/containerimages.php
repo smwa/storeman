@@ -40,6 +40,9 @@ class containerimagesRoute extends rest
     if ($ci) {
       $ci->delete();
     }
+    if ($_FILES["file"]["error"] > 0) {
+      return error("Container image upload error ".$_FILES["file"]["error"]);
+    }
     $f = new Containerimage();
     $f->filename = $_FILES['file']['name'];
     if (!$f->uploadFromLocation($_FILES['file']['tmp_name'])) {
