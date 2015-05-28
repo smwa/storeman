@@ -22,6 +22,7 @@ gulp.task('scripts', function() {
     'app/components/angular.js/angular-route.min.js',
     'app/components/qrcode-generator/js/qrcode.js',
     'app/components/angular-qrcode/qrcode.js',
+    'app/components/ng-file-upload/dist/ng-file-upload.min.js',
     'app/app.js',
     'app/scripts/**/*.js',
     'app/**/*.html'
