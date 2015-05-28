@@ -1,4 +1,5 @@
 <?php
+include_once("php-image-resize.php");
 class Containerimage extends MysqlActiveRecord {
   protected function getPrimaryKey() {
         return "id";
@@ -10,7 +11,7 @@ class Containerimage extends MysqlActiveRecord {
     public function uploadFromLocation($location) {
         try {
             $ir = new \Eventviva\ImageResize($location);
-            $ir->resizeToWidth(600);
+            $ir->resizeToWidth($GLOBALS["resizeimagewidth"]);
             $this->filedata = $ir->getImageAsString();
         } catch (Exception $e) {
             error_log('ImageResize caught exception: '.$e->getMessage());

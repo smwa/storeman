@@ -7,3 +7,4 @@ $GLOBALS["mysqli_port"] = "3306";
 $GLOBALS["mysqli_socket"] = null;
 $GLOBALS["salt"] = "9982vndshdh98qhLBYIyyu777Vd55CTk";
 $GLOBALS["db_version"] = 2;
+$GLOBALS["resizeimagewidth"] = 800;
