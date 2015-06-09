@@ -7,11 +7,10 @@ angular.module('app')
     return User.isLoggedInVar;
   };
   
-    $scope.logout = function() {
-      User.logOut();
-      $timeout(function() {
-        $location.path("#/landing");
-      },250);
-    };
-  User.isLoggedIn();
+  $scope.logout = function() {
+    User.logOut();
+    $timeout(function() {
+      $location.path("#/landing");
+    },250);
+  };
 });

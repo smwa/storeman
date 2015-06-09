@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('locationCtrl', function ($scope, $route, $routeParams, Location, Container, Item) {
+  .controller('locationCtrl', function ($scope, $route, $routeParams, Location, Container, Item, User) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -10,6 +10,8 @@ angular.module('app')
   
   $scope.containers = [];
   $scope.items = [];
+  
+  User.requireLogIn();
   
   if ($routeParams.hasOwnProperty("id")) {
     $scope.id = $routeParams.id;
@@ -20,7 +22,7 @@ angular.module('app')
       $scope.error = data.error;
     });
   } else {
-    $scope.error = "Invalid location"
+    $scope.error = "Invalid location";
   }
   
   Container.getAll(function(data){

@@ -1,12 +1,14 @@
 'use strict';
 
 angular.module('app')
-  .controller('locationeditCtrl', function ($scope, $route, $location, $routeParams, Location) {
+  .controller('locationeditCtrl', function ($scope, $route, $location, $routeParams, Location, User) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
   $scope.title = "";
   $scope.description = "";
+  
+  User.requireLogIn();
   
   if ($routeParams.hasOwnProperty("id")) {
     $scope.id = $routeParams.id;

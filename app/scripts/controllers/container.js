@@ -1,13 +1,15 @@
 'use strict';
 
 angular.module('app')
-  .controller('containerCtrl', function ($scope, $route, $routeParams, Container, Item, Location, Image) {
+  .controller('containerCtrl', function ($scope, $route, $routeParams, Container, Item, Location, Image, User) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
   $scope.title = "";
   $scope.location = null;
   $scope.items = [];
+  
+  User.requireLogIn();
   
   if ($routeParams.hasOwnProperty("id")) {
     $scope.id = $routeParams.id;
@@ -21,7 +23,7 @@ angular.module('app')
       $scope.error = data.error;
     });
   } else {
-    $scope.error = "Invalid container"
+    $scope.error = "Invalid container";
   }
   
   Item.getAll(function(data){

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app')
-  .controller('containereditCtrl', function ($scope, $location, $route, $routeParams, Location, Container) {
+  .controller('containereditCtrl', function ($scope, $location, $route, $routeParams, Location, Container, User) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
@@ -10,6 +10,8 @@ angular.module('app')
   
   $scope.locations = [{id:0, title: "No Location"}];
   $scope.locationsSelected = 0;
+  
+  User.requireLogIn();
   
   $scope.locationClick = function(index, loc, $event) {
     $event.preventDefault();

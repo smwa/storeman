@@ -1,11 +1,13 @@
 'use strict';
 
 angular.module('app')
-  .controller('itemeditCtrl', function ($scope, $route, $location, $routeParams, Location, Container, Item, Image) {
+  .controller('itemeditCtrl', function ($scope, $route, $location, $routeParams, Location, Container, Item, Image, User) {
   $scope.msg = null;
   $scope.error = null;
   $scope.id = null;
   $scope.title = "";
+  
+  User.requireLogIn();
   
   $scope.originallocation = 0;
   $scope.originalcontainer = 0;

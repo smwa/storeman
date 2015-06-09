@@ -9,17 +9,14 @@ angular.module('app')
   $scope.error = null;
   $scope.helper = false;
   $scope.notLoggedInTimeout = null;
-
-  User.isLoggedIn(function(){
-
-  }, function(){
+  
+  User.requireLoginLanding(function(){
     if ($scope.notLoggedInTimeout !== null) {
       $timeout.cancel($scope.notLoggedInTimeout);
       $scope.notLoggedInTimeout = null;
     }
-    $location.path("/landing");
   });
-  
+
   $scope.deleteLocation = function(id) {
     Location.delete(id, function(data){
       $route.reload();
