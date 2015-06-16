@@ -59,6 +59,9 @@ gulp.task('index', function() {
     }))
     .pipe(minifyhtml())
     .pipe(gulp.dest('build/'));
+	
+	gulp.src('app/manifest.json')
+	.pipe(gulp.dest('build/'));
 });
 
 gulp.task('api', function() {
