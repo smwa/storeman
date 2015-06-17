@@ -28,6 +28,12 @@ class Container extends MysqlActiveRecord {
                 "localkey" => "locationid",
                 "foreignkey" => "id"
             ),
+            "Images" => array(
+                "relation" => self::has,
+                "model"     => "Containerimage",
+                "localkey" => "id",
+                "foreignkey" => "containerid"
+            ),
         );
     }
 

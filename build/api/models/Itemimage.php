@@ -4,8 +4,20 @@ class Itemimage extends MysqlActiveRecord {
     protected function getPrimaryKey() {
         return "id";
     }
+  
     protected function getTableName() {
         return "itemimages";
+    }
+  
+    protected function getRelations() {
+        return array(
+            "Item" => array(
+                "relation" => self::belongsTo,
+                "model"     => "Item",
+                "localkey" => "itemid",
+                "foreignkey" => "id"
+            ),
+        );
     }
   
     public function uploadFromLocation($location) {

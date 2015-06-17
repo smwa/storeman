@@ -4,8 +4,20 @@ class Containerimage extends MysqlActiveRecord {
   protected function getPrimaryKey() {
         return "id";
     }
+  
     protected function getTableName() {
         return "containerimages";
+    }
+  
+    protected function getRelations() {
+        return array(
+            "Container" => array(
+                "relation" => self::belongsTo,
+                "model"     => "Container",
+                "localkey" => "containerid",
+                "foreignkey" => "id"
+            ),
+        );
     }
     
     public function uploadFromLocation($location) {

@@ -28,6 +28,12 @@ class Item extends MysqlActiveRecord {
                   "localkey" => "locationid",
                   "foreignkey" => "id"
               ),
+            "Images" => array(
+                "relation" => self::has,
+                "model"     => "Itemimage",
+                "localkey" => "id",
+                "foreignkey" => "itemid"
+            ),
         );
     }
 
