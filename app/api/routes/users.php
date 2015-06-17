@@ -34,7 +34,7 @@ class usersRoute extends rest
   }
   
   function put() {
-    if ($this->user->password != User::hash($this->input["oldpassword"])) {
+    if ($this->user->password != User::hash($this->input["oldpassword"], $this->user->salt)) {
       return $this->error("Invalid password: ".$this->input["oldpassword"], self::HTTP_UNAUTHORIZED);
     }
     if (!$this->user->setPassword($this->input["password"])) {
@@ -48,7 +48,7 @@ class usersRoute extends rest
   }
   
   function delete() {
-    if ($this->user->password != User::hash($this->input["password"])) {
+    if ($this->user->password != User::hash($this->input["password"], $this->user->salt)) {
       return $this->error("Invalid password", self::HTTP_UNAUTHORIZED);
     }
     

@@ -7,7 +7,7 @@ class sessionsRoute extends rest
     if (!$user) {
       return $this->error("This email has not been registered", self::HTTP_UNAUTHORIZED);
     }
-    if ($user->password != User::hash($this->input["password"])) {
+    if ($user->password != User::hash($this->input["password"], $user->salt)) {
       return $this->error("Incorrect password", self::HTTP_UNAUTHORIZED);
     }
     $Session = new Session();

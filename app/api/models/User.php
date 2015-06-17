@@ -39,16 +39,18 @@ class User extends MysqlActiveRecord {
 
   public $id,
     $email,
-    $password;
+    $password
+    $salt;
   
-  public function setPassword($password) {
+  public function setPassword($password, $salt) {
     if (!$this->testPassword($password)) return false;
-    $this->password = self::hash($password);
+    $this->salt = self::generateSalt();
+    $this->password = self::hash($password, $this->salt);
     return $this->password;
   }
   
-  public static function hash($password) {
-    return password_hash($password, PASSWORD_BCRYPT, array("cost" => '10', "salt" => $GLOBALS["salt"]));
+  public static function hash($password, $salt) {
+    return password_hash($password, PASSWORD_BCRYPT, array("cost" => '10', "salt" => $salt));
   }
   
   private function testPassword($password) {
@@ -56,5 +58,14 @@ class User extends MysqlActiveRecord {
         return false;
     }
     return true;
+  }
+  
+  public static function generateSalt() {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $string = '';
+    for ($i = 0; $i < 128; $i++) {
+      $string .= $characters[mt_rand(0, strlen($characters) - 1)];
+    }
+    return $string;
   }
 }

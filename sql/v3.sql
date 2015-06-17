@@ -1,0 +1,3 @@
+ALTER TABLE users ADD COLUMN salt VARCHAR(128) DEFAULT '';
+
+UPDATE user SET salt = '9982vndshdh98qhLBYIyyu777Vd55CTk';
