@@ -20,7 +20,7 @@ Because I, like most people I'm sure, have way too much stuff, scattered among a
 ###How
 Storeman is built on Angular.js, with bootstrap, jquery, and a qr library thanks to [monospaced](https://github.com/monospaced/).
 
-For the backend, it uses PHP(>= 5.4) and MySQL for a REST based API.(Feel free to implement this, sorry there's no documentation yet)
+For the backend, it uses PHP(>= 5.4) and MySQL for a REST based API.(Feel free to implement this, there is documentation in the docs directory)
 
 The REST API uses a light framework I built that can be found in app/api/rest.php.
 It doesn't use mod rewrite or anything similar.
