@@ -47,3 +47,9 @@ Examples:
 
 Feel free to use those two libraries, or improve upon them.
 Pull Requests are always welcome.
+
+###DIY
+If you'd like to get it running on your own server, there are two scripts for starting docker containers
+startDB.sh and startWeb.sh.
+If you clone the repo, change into the directory, and run those two scripts, it'll start the containers necessary.
+You can then go to http://localhost/api/migrate.php to initiate the database. This will let you know if anything went wrong or the database can't connect.
