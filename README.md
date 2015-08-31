@@ -1,7 +1,5 @@
 # Storeman
 
-**Try it at [smwa.me](http://smwa.me)**
-
 ###What
 
 Storeman is a web app that helps someone manage where they have stored stuff.
